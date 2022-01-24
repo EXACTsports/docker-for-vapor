@@ -125,3 +125,5 @@ RUN pecl channel-update pecl.php.net && \
     rm -rf /tmp/pear
 RUN docker-php-ext-configure xmlrpc-1.0.0RC3 --with-xmlrpc=/usr/lib/ && \
     docker-php-ext-install xmlrpc-1.0.0RC3
+
+COPY . /var/task
