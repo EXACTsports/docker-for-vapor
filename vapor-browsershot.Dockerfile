@@ -126,4 +126,7 @@ RUN pecl channel-update pecl.php.net && \
 RUN docker-php-ext-configure xmlrpc-1.0.0RC3 --with-xmlrpc=/usr/lib/ && \
     docker-php-ext-install xmlrpc-1.0.0RC3
 
+# install mysql-client
+RUN apt-get update && apt-get install -y mysql-client
+
 COPY . /var/task
