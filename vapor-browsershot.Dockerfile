@@ -109,3 +109,11 @@ RUN apt-get install -y \
 # install puppeteer using npm
 RUN npm install --g --unsafe-perm puppeteer
 RUN chmod -R o+rx /usr/lib/node_modules/puppeteer/.local-chromium
+
+# install imagick
+RUN apt-get update && \
+    apt-get install -y imagemagick
+RUN RUN pecl channel-update pecl.php.net && \
+    pecl install imagick && \
+    docker-php-ext-configure imagick --with-imagick=/usr/lib/ && \
+    docker-php-ext-enable imagick
