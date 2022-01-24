@@ -117,3 +117,11 @@ RUN RUN pecl channel-update pecl.php.net && \
     pecl install imagick && \
     docker-php-ext-configure imagick --with-imagick=/usr/lib/ && \
     docker-php-ext-enable imagick
+
+# install ffmpeg
+RUN apt-get update && apt-get install -y ffmpeg
+RUN pecl channel-update pecl.php.net && \
+    pecl install xmlrpc-1.0.0RC3 && \
+    rm -rf /tmp/pear
+RUN docker-php-ext-configure xmlrpc-1.0.0RC3 --with-xmlrpc=/usr/lib/ && \
+    docker-php-ext-install xmlrpc-1.0.0RC3
